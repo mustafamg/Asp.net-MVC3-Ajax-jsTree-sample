@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div id="demo1"></div>
+    <script type="text/javascript">
+        $(function () {
+            $("#demo1").jstree({
+//                "themes": {
+//                    "theme": "classic",
+//                    "dots": false
+//                },
+                "json_data": {
+                    "ajax": {
+                        "url": "/home/TreeViewTestContent",
+                        "data": function (n) {
+                            return { id: n.attr ? n.attr("id") : 0 };
+                        }
+                    }
+                },
+                "plugins": ["themes", "json_data", "ui"]
+            });
+        });
+
+//        $(function () {
+//            $("#demo2").jstree({
+//                "json_data": {
+//                    "ajax": {
+//                        "url": "/static/v.1.0pre/_docs/_json_data.json",
+//                        "data": function (n) {
+//                            return { id: n.attr ? n.attr("id") : 0 };
+//                        }
+//                    }
+//                },
+//                "plugins": ["themes", "json_data"]
+//            });
+//        });
+//.bind("select_node.jstree", function (event, data) {
+//                alert(data.rslt.obj.attr("id"));
+//                alert(data.rslt.obj.attr("other_attribute"));
+//            });
+    </script>
